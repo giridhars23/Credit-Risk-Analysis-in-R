@@ -1,0 +1,149 @@
+First the data was imported and cleaned.
+
+Cleaning the Data
+
+Finance Rate
+This Variable has around 19% records with 0%rate
+
+We are not removing these records at this moment as:
+1.We need to see how other variables values look like 
+2.Business wise, We don't know what kind of loans have been given with 0% rate. But it might be possible that these loans are small amount loan with no interest. 
+
+Finance Charges
+Finance Charges has lot of records (i.e. 1511) with 1 RS finance charges
+Hence we checked if there is a relation between minimal finance charges and zero  finance rate
+
+So it is observed that all loans with 0% interest rate incur only 1 rupee of finance charges and business wise its possible. Hence we are not removing these records at this moment
+
+Finance Amount and Average EMI
+There a huge no of records(i.e. 6168(almost 77%)) whose Average_Emi is greater than the financed amount, that means that EMI calculated here is not only for this loan but overall loan which customer has taken so far, so we cannot remove such records. So we assumed that average EMI is not only for this loan but for the entire loan which customer is currently serving
+
+NOIR and NOISB
+we found that following ratio (matrix) is positive and very high  for the identified customers-
+*NOIR – Monthly income/Installment
+*NOISB – Average bank balance/EMI
+ 
+We also observed that in some cases where Finance amount is far greater than customer’s gross income and is liable to be removed, but when we closely checked the other parameters like NOIR and NOISB it was far better to allow the customer to become eligible for the loan. 
+
+After Cleaning, splitting into training and test sets.
+
+Different models were run and evaluated.
+
+1. Decision Tree
+  1.	RPART library has been used to create this model
+  2.	In Step1, the model is created with default parameters input and the result has been plotted
+  3.	In next Step, the tree gets Pruned with minimum XERROR and the PRUNED classification tree is plotted using library RcolorBrewer.
+  4.	Then Model is validated against the test data by predicting the Loan Output. 
+  5.  Confusion Matrix
+      Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 794 202
+         1 151 854
+                                          
+               Accuracy : 0.8236          
+                 95% CI : (0.8062, 0.8401)
+    No Information Rate : 0.5277          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.6471          
+ Mcnemar's Test P-Value : 0.007786        
+                                          
+            Sensitivity : 0.8402          
+            Specificity : 0.8087          
+         Pos Pred Value : 0.7972          
+         Neg Pred Value : 0.8498          
+             Prevalence : 0.4723          
+         Detection Rate : 0.3968          
+   Detection Prevalence : 0.4978          
+      Balanced Accuracy : 0.8245          
+                                          
+       'Positive' Class : 0        
+  
+  
+2.   Linear Discriminant Analysis
+  1. Library MASS has been used to execute Linear Discriminant Analysis
+  Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 787 233
+         1 158 823
+                                          
+               Accuracy : 0.8046          
+                 95% CI : (0.7865, 0.8218)
+    No Information Rate : 0.5277          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.6096          
+ Mcnemar's Test P-Value : 0.0001823       
+                                          
+            Sensitivity : 0.8328          
+            Specificity : 0.7794          
+         Pos Pred Value : 0.7716          
+         Neg Pred Value : 0.8389          
+             Prevalence : 0.4723          
+         Detection Rate : 0.3933          
+   Detection Prevalence : 0.5097          
+      Balanced Accuracy : 0.8061          
+                                          
+       'Positive' Class : 0       
+       
+ 3. GLM - Logistic Regression
+    
+Confusion Matrix and Statistics
+
+          Reference
+Prediction   0   1
+         0 796 221
+         1 149 835
+                                          
+               Accuracy : 0.8151          
+                 95% CI : (0.7974, 0.8319)
+    No Information Rate : 0.5277          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.6305          
+ Mcnemar's Test P-Value : 0.0002233       
+                                          
+            Sensitivity : 0.8423          
+            Specificity : 0.7907          
+         Pos Pred Value : 0.7827          
+         Neg Pred Value : 0.8486          
+             Prevalence : 0.4723          
+         Detection Rate : 0.3978          
+   Detection Prevalence : 0.5082          
+      Balanced Accuracy : 0.8165          
+                                          
+       'Positive' Class : 0  
+       
+ 4. Random Forest 
+    1. Random Forest was implemented using Caret and the Ranger packages.
+    2. A tuneLength of 3 was used and 5 Fold Cross Validation was performed.
+    3. Confusion Matrix
+        Reference
+Prediction   0   1
+         0 805 215
+         1 140 841
+                                          
+               Accuracy : 0.8226          
+                 95% CI : (0.8051, 0.8391)
+    No Information Rate : 0.5277          
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.6456          
+ Mcnemar's Test P-Value : 8.583e-05       
+                                          
+            Sensitivity : 0.8519          
+            Specificity : 0.7964          
+         Pos Pred Value : 0.7892          
+         Neg Pred Value : 0.8573          
+             Prevalence : 0.4723          
+         Detection Rate : 0.4023          
+   Detection Prevalence : 0.5097          
+      Balanced Accuracy : 0.8241          
+                                          
+       'Positive' Class : 0  
+   
+  
