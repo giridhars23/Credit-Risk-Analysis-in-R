@@ -1,0 +1,16 @@
+The dataset is in CSV format. (Data.csv file)
+Data-variables and its description is as mentioned below – 
+•	Type – Target variable explains Loan outcome - “Good” or “Bad”  
+•	state_code – State on which Loan was initiated
+•	finance_rate – Interest rate
+•	finance_charges – Loan finance charges 
+•	credit_rating –  
+o	0 - If Credit rating is not available
+o	1 – If Credit rating is available
+•	finance_amount – Amount financed
+•	avarage_emi – Average EMI of that customer for all the loans across
+•	noir – Income to Installment ratio
+•	noisb – Average bank balance to EMI ratio
+•	gih – Gross income of the customer
+•	gis – Gross income of the spouse 
+•	gic – Gross income of the co-borrower
