@@ -12,7 +12,7 @@ Primary methods to be used:
 4. Random Forest
 
 Dataset:
-The dataset is in the file data.csv. More info on this file is in Dataset.txt file.
+The dataset is in the file data.csv. More info on this file is in Dataset_info.txt file.
 
 Requirements: 
 The code will be written in R. More on the requirements in the Requirements.txt file.
