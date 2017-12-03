@@ -1,0 +1,11 @@
+The Analysis will be done R language.
+The Code was executed in RStudio Version 1.1.383.
+
+The packages necessary to run this code are
+ggplot2
+dplyr
+sqldf
+rpart
+rpart.plot
+caret
+MASS
