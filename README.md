@@ -18,4 +18,4 @@ Requirements:
 The code will be written in R. More on the requirements in the Requirements.txt file.
 
 Analysis and Conclusion:
-The Results will be available in the Results.txt file
+The Results will be available in the AnalysisandResults.txt file
