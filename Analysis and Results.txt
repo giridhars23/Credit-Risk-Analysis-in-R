@@ -147,3 +147,4 @@ Prediction   0   1
        'Positive' Class : 0  
    
   
+Overall Random Forest model and Decision Tree was able to perform relatively better than other models like Linear Discriminant analysis, and Logistic regression model. 
